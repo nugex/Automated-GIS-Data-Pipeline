@@ -1,0 +1,7 @@
+report_id,date_submitted,issue_type,address,lat,lon,status
+1001,2023-10-24,Pothole,101 Main St,32.9995,-97.2285,Open
+1002,2023-10-24,Streetlight Out,250 Oak St,32.9980,-97.2290,Open
+1003,2023-10-24,Water Leak,500 Elm St,32.9975,-97.2300,In Progress
+1004,2023-10-25,Pothole,102 Main St,32.9996,-97.2285,Open
+1005,2023-10-25,Missed Trash,Invalid Address,, ,Open
+1006,2023-10-25,Drainage Issue,750 Pine St,32.9960,-97.2270,Closed
