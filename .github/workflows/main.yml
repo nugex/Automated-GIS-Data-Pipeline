@@ -1,0 +1,35 @@
+name: Daily 311 GIS Pipeline
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install requests pandas geopandas shapely
+
+      - name: Run ETL Pipeline
+        run: python 311_etl_automation.py
+
+      - name: Commit and Push new GeoJSON
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git add processed_311_reports.geojson
+          git commit -m "Automated update of Dallas 311 GeoJSON data" || echo "No changes to commit"
+          git push
