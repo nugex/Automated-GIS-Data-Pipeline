@@ -1,0 +1,13 @@
+# dependencies
+node_modules/
+
+# Next.js build output
+.next/
+
+# environment variables
+.env
+.env*.local
+
+# IDE and OS files
+.idea/
+.DS_Store
